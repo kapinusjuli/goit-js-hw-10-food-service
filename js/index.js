@@ -15,5 +15,7 @@ function createMenuMarkup (menu) {
     return menu.map(menuCardTpl).join('');
 }
 
+// console.log (menuContainer);
+// console.log(menuMarkup);
 
-menuContainer.insertAdjacentElement('beforeend', menuMarkup);
+menuContainer.insertAdjacentHTML('afterbegin',menuMarkup);
