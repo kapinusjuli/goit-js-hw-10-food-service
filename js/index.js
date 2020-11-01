@@ -6,7 +6,7 @@ import menu from '../menu.json';
 // console.log (menu);
 
 const menuContainer = document.querySelector('.js-menu');
-const menuMarkup = JSON.stringify(createMenuMarkup (menu));
+const menuMarkup = createMenuMarkup (menu);
 
 
 console.log (menuContainer);
