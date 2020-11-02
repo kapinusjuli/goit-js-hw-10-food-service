@@ -2,9 +2,6 @@ import menuCardTpl from '../src/templates/menu-card.hbs';
 import menu from '../menu.json';
 
 
-// console.log (menuCardTpl(menu[0]));
-// console.log (menu);
-
 const menuContainer = document.querySelector('.js-menu');
 const menuMarkup = createMenuMarkup (menu);
 
@@ -32,26 +29,19 @@ const bodyColor = document.querySelector('body');
 const themeChange = document.querySelector('.theme-switch__toggle')
 
 themeChange.addEventListener('change', clickHandler);
-themeChange.addEventListener('change', setLocalStorage);
 document.addEventListener('DOMContentLoaded', getThemeFromLocalStorage);
 
 
 function clickHandler(evt) {
 if (themeChange.checked) {
-    setDarkTheme()
+    setDarkTheme();
+    localStorage.setItem('theme', Theme.DARK);
 } else {
-    setLightTheme()
+    setLightTheme();
+    localStorage.setItem('theme', Theme.LIGHT);
 }
 }
 
-function setLocalStorage(evt) {
-    if (themeChange.checked) {
-        localStorage.setItem('theme', Theme.DARK);
-    } else {
-        localStorage.removeItem('theme');
-        localStorage.setItem('theme', Theme.LIGHT);
-    }
-}
 
 function getThemeFromLocalStorage() {
     const themeInLocalStrg = localStorage.getItem('theme');
